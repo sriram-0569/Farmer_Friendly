@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            
+            /* display: block; */
+            /* align-items: center;
+            justify-content: center; */
+        }
+        body{
+            background-image: url(./rest.jpg);
+            background-repeat: no-repeat;
+            background-position:center ;
+            background-size: cover;
+        }
+        .main{
+            width:50%;
+            margin:15% auto;
+        }
+
+        a{
+            background-color: aliceblue;
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3><u>To know about Fertilizers </u></h3>
+    <label for="crops"><h1>Enter the crop to be grown:</label>
+        <select name="Crop" id="crops">
+        <option value="Wheat">Wheat</option>
+        <option value="Maize">Maize</option>
+        <option value="Paddy">Paddy</option></h1>
+        </select>
+        <h4>Enter the pH Value:<input type="number" id="phv" name="fname"size="15"maxsize="20"></h4>
+        <h4>Enter amount of K(Potassium):<input type="number" id="kv" name="fname"size="15"maxsize="20"></h4>
+        <h4>Enter amount of N(Nitrogen):<input type="number" id="nv" name="fname"size="15"maxsize="20"></h4>
+        <h4>Enter amount of P(Phosporous):<input type="number" id="pv" name="fname"size="15"maxsize="20"></h4>
+        <h4>Enter the Area in hectares :<input type="number" id="hv" name="fname"size="15"maxsize="20"></h4>  
+        <a href="main.html">BACK</a>
+ 
+        <button onclick="ferti()" id="btn" >Submit</button> 
+        <p id="result"></p>
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+        <p id="result4"></p>
+    </div>
+</body>
+<script> 
+function ferti(){
+var x=document.getElementById("crops").value;
+let phv=parseInt(document.getElementById('phv').value);
+let nv=parseInt(document.getElementById('nv').value);
+let pv=parseInt(document.getElementById('pv').value);
+let kv=parseInt(document.getElementById('kv').value);
+let hv=parseInt(document.getElementById('hv').value);
+let ureaqt,sspqt,mopqt=0;
+if (x=="Paddy")
+{
+    ureaqt=(271.81-((nv-15)*18.12))*hv;
+    sspqt=(185.32-((pv-30)*6.177))*hv;
+    mopqt=(49.42-((kv-200)*0.247))*hv;
+}
+else if (x=="Wheat")
+{
+    ureaqt=(271.81-((nv-15)*18.12))*hv;
+    sspqt=(383.005-((pv-30)*12.76))*hv;
+    mopqt=(54.632-((kv-200)*0.273))*hv;
+
+}
+else (x=="Maize")
+{
+    ureaqt=(50-((nv-15)*3.333))*hv;
+    sspqt=(135.55-((pv-30)*4.518))*hv;
+    mopqt=(39.67-((kv-200)*0.198))*hv;
+}
+document.getElementById("result").innerHTML="Crop: "+ x;
+document.getElementById("result1").innerHTML="Fertiliser-Quantity(in Kgs)";
+document.getElementById("result2").innerHTML="UREA-------"+parseFloat(ureaqt).toFixed(2);
+document.getElementById("result3").innerHTML="SSP---------"+parseFloat(sspqt).toFixed(2);
+document.getElementById("result4").innerHTML="MOP---------"+parseFloat(mopqt).toFixed(2);
+
+}
+
+
+
+</script>
+</html>

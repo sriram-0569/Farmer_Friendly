@@ -1,0 +1,40 @@
+<html>
+<head>
+     <title>Farmer's Friendly</title>
+     <link rel="stylesheet" type="text/css" href="mainstyle.css">
+
+</head>
+<body>
+    <header>
+    <div class="main">
+            <ul>
+                <li><a href="estimate.html">Estimation</a></li>
+                <li><a href="time.html">Right time for cultivation</a></li>
+                <li><a href="alerts.html">Alerts</a></li>
+                <li><a href="fert.html">Fertilizers</a></li>
+
+
+            </ul>
+        </div>
+       <div class="content">
+           <h1>Farmer's Friendly</h1>
+           
+           <!--<button onclick="login()" id="asd">LOGIN</button> -->
+        </div>
+    </header>
+</body> 
+<script>
+    function login(){
+        var http=new XMLHttpRequest();
+        http.onreadystatechange = function(){
+            if (http.readyState==XMLHttpRequest.DONE){
+                alert(http.responseText)
+            }
+        }
+        http.open('GET','http://localhost:5000/login?username=Vamshi&password=1234',true);
+        http.send();
+        console.log(http);
+    }
+    
+</script>  
+</html>

@@ -1,0 +1,15 @@
+Quantity of Fertilizers required in kg/ha
+    
+                          for 2.5 hectares
+    UREA     271.7 kg/ha     679.25kg   
+    SSP      185.2 kg/ha    463.125kg
+    MOP       49.4 kg/ha      123.5kg
+
+ 
+               Cost/kg     Total Cost
+    UREA       5.377       Rs.3652.320
+    SSP        7.24        Rs.3353.025
+    MOP         75         Rs.9265.500
+    
+               TOTAL       Rs.16267.845== Rs.170000
+

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            
+            /* display: block; */
+            /* align-items: center;
+            justify-content: center; */
+        }
+        body{
+            background-image: url(./restt.jpg);
+            background-repeat: no-repeat;
+            background-position:center ;
+            background-size: cover;
+        }
+        .main{
+            width:50%;
+            margin:15% auto;
+        }
+
+        a{
+            background-color: aliceblue;
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2><u>సాగుకు సరైన సమయం తెలుసుకోండి</u></h2>
+        <label for="crops"><h1>పండించాల్సిన పంటను నమోదు చేయండి:</label>
+        <select name="Crop" id="crops">
+        <option value="గోధుమ">గోధుమ</option>
+        <option value="వరి">వరి</option>
+        <option value="బార్లీ">బార్లీ</option>
+        <option value="మొక్కజొన్న">మొక్కజొన్న</option>
+        <option value="మిల్లెట్స్">మిల్లెట్స్</option>
+        <option value="పప్పులు">పప్పులు</option>
+        <option value="జోవర్">జోవర్</option>
+        <option value="బజ్రా">బజ్రా</option></h1>
+
+        </select>
+
+        <label for="location"><h3>స్థానాన్ని నమోదు చేయండి:</label>
+            <select name="Location" id="location">
+                    <option value="ఆంధ్ర ప్రదేశ్">ఆంధ్ర ప్రదేశ్ </option>
+                    <option value="అరుణాచల ప్రదేశ్"> అరుణాచల ప్రదేశ్     </option>
+                    <option value="అస్సాం"> అస్సాం  </option>
+                    <option value="బీహార్"> 	బీహార్  </option>
+                    <option value="చత్తీస్ ఘర్ "> 	చత్తీస్ ఘర్   </option>
+                    <option value="గోవా">  	గోవా </option>
+                    <option value="గుజరాత్">  	గుజరాత్ </option>
+                    <option value="హర్యానా"> 	హర్యానా </option>
+                    <option value="హిమాచల ప్రదేశ్">	హిమాచల ప్రదేశ్  </option>
+                    <option value="జమ్మూ కాశ్మీర్"> 	జమ్మూ కాశ్మీర్  </option>
+                    <option value="జార్ఖండ్">	జార్ఖండ్  </option>
+                    <option value="కర్ణాటక">	కర్ణాటక     </option>
+                    <option value="కేరళ">	కేరళ  </option>
+                    <option value="మధ్య ప్రదేశ్"> 	మధ్య ప్రదేశ్    </option>
+                    <option value="మహారాష్ట్ర"> 	మహారాష్ట్ర </option>
+                    <option value="మణిపూర్"> 	మణిపూర్    </option>
+                    <option value="మేఘాలయ"> 	మేఘాలయ  </option>
+                    <option value="మిజోరాం">  	మిజోరాం</option>
+                    <option value="నాగాలాండ్"> 	నాగాలాండ్ </option>
+                    <option value="ఒరిస్సా"> 	ఒరిస్సా  </option>
+                    <option value="పంజాబ్"> 	పంజాబ్   </option>
+                    <option value="రాజస్థాన్"> 	రాజస్థాన్  </option>
+                    <option value="సిక్కిం"> 	సిక్కిం   </option>
+                    <option value="తమిళనాడు"> 	తమిళనాడు     </option>
+                    <option value="తెలంగాణ"> 	తెలంగాణ  </option>
+                    <option value="త్రిపుర"> 	త్రిపుర </option>
+                    <option value="ఉత్తర ప్రదేశ్"> 	ఉత్తర ప్రదేశ్ </option>
+                    <option value="ఉత్తరాఖండ్"> 	ఉత్తరాఖండ్ </option>
+                    <option value="వెస్ట్ బెంగాల్">  	వెస్ట్ బెంగాల్  </option>
+                    </select>
+            </div>
+            
+        </h3>
+        <a href="maint.html">బ్యాక్</a>
+
+        
+        <button onclick="time()" id="btn" >సబ్మిట్</button>
+        <p id="result"></p>
+        <p id="result1"></p> 
+        <p id="result2"></p> 
+        <p id="result3"></p> 
+        <p id="result4"></p>  
+    </div>
+    
+</body>
+<script>
+    function time(){
+        var y=document.getElementById("crops").value;
+        var x=document.getElementById("location").value;
+        if(((x=="వెస్ట్ బెంగాల్")||(x=="ఉత్తర ప్రదేశ్")||(x=="పంజాబ్")||(x=="ఆంధ్ర ప్రదేశ్")||(x=="తమిళనాడు"))&&(y=="వరి")){
+            
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="సీజన్: ఖరీఫ్";
+                document.getElementById("result3").innerHTML="విత్తే సమయం: జూన్ - జూలై";
+                document.getElementById("result4").innerHTML="కోత సమయం: సెప్టెంబర్ - అక్టోబర్";   
+            }
+
+        
+         else if(((x=="ఉత్తర ప్రదేశ్")||(x=="పంజాబ్")||(x=="Haryana")||(x=="Madhya Pradesh")||(x=="Rajasthan")||(x=="Bihar")||(x=="Gujarat"))&&(y=="Wheat")){
+            
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="సీజన్: రబీ";
+                document.getElementById("result3").innerHTML="విత్తే సమయం: అక్టోబర్ - డిసెంబర్";
+                document.getElementById("result4").innerHTML="కోత సమయం: ఏప్రిల్-జూన్";
+            }
+            
+        
+         else if(((x=="Haryana")||(x=="ఉత్తర ప్రదేశ్")||(x=="Chhattisgarh")||(x=="Gujarat")||(x=="Rajasthan")||(x=="Madhya Pradesh")||(x=="Maharashtra")||(x=="Andhra Pradesh")||(x=="Karnataka")||(x=="Tamil Nadu")||(x=="Telangana"))&& (y=="Millets")){
+           
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="Season: Kharif";
+                document.getElementById("result3").innerHTML="Sowing Time: May-August";
+                document.getElementById("result4").innerHTML="Harvesing Time: September- January";
+            }
+
+        
+         else if(((x=="Rajasthan")||(x=="ఉత్తర ప్రదేశ్")||(x=="Haryana")||(x=="Gujarat"))&&(y=="Bajra")){
+            
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="Season: Kharif";
+                document.getElementById("result3").innerHTML="Sowing Time: June - July";
+                document.getElementById("result4").innerHTML="Harvesing Time: September - October";
+            
+            
+        }
+         else if(((x=="Maharashtra")||(x=="Karnataka")||(x=="Andhra Pradesh")||(x=="Tamil Nadu"))&&(y=="Jowar")){
+            
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="Season: Kharif";
+                document.getElementById("result3").innerHTML="Sowing Time: June - July";
+                document.getElementById("result4").innerHTML="Harvesing Time: September - October";
+            
+            
+        }
+         else if(((x=="Madhya Pradesh")||(x=="Maharashtra")||(x=="ఉత్తర ప్రదేశ్")||(x=="Rajasthan")||(x=="Andhra Pradesh"))&&(y=="Pulses")){
+           
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="Season: Kharif";
+                document.getElementById("result3").innerHTML="Sowing Time: June - July";
+                document.getElementById("result4").innerHTML="Harvesing Time: September - October";
+            }
+            
+         else if(((x=="Karnataka")||(x=="Andhra Pradesh")||(x=="Tamil Nadu")||(x=="Rajasthan")||(x=="Maharashtra")||(x=="Bihar")||(x=="ఉత్తర ప్రదేశ్")||(x=="Tamil Nadu")||(x=="Madhya Pradesh")||(x=="Gujarat"))&&(y=="Maize")){
+            
+                document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="Season: Kharif";
+                document.getElementById("result3").innerHTML="Sowing Time: June - July";
+                document.getElementById("result4").innerHTML="Harvesing Time: September - October";}
+         else{
+            
+            document.getElementById("result").innerHTML="పంట: "+ y;
+                document.getElementById("result1").innerHTML="స్థానం: "+ x;
+                document.getElementById("result2").innerHTML="The Choosen Crop can't be grown in the location,Please Choose The Correct Combination"; 
+                document.getElementById("result3").innerHTML=" "  ;
+                document.getElementById("result4").innerHTML=" ";
+            
+         }       
+            
+            
+        }
+
+    
+</script>
+</html>

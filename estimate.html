@@ -1,0 +1,164 @@
+<html>
+<head>
+    
+    <style>
+        *{
+            text-align: center;
+            
+            /* display: block; */
+            /* align-items: center;
+            justify-content: center; */
+        }
+        body{
+            background-image: url(./rest.jpg);
+            background-repeat: no-repeat;
+            background-position:center ;
+            background-size: cover;
+        }
+        .main{
+            width:50%;
+            margin:15% auto;
+        }
+        h6{
+            font-family:sans-serif;
+        }
+
+
+        a{
+            background-color: aliceblue;
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+        }
+    </style>
+<title>ESTIMATION THROUGH INPUTS</title>
+<body>
+    <div class="main"></div>
+        <br>
+        <br>
+        <label for="crops"><h1>Enter the crop to be grown:</label>
+        <select name="Crop" id="crops">
+        <option value="Wheat">Wheat</option>
+        <option value="Maize">Maize</option>
+        <option value="Paddy">Paddy</option></h1>
+        </select>
+        <h4>Please select the seed packet tag color:</h4>
+        <input type="radio" id="blue" name="tag_color" value="Blue">
+        <label for="blue">Blue</label><br>
+        <input type="radio" id="white" name="tag_color" value="White">
+        <label for="white">White</label><br>
+        <input type="radio" id="yellow" name="tag_color" value="Yellow">
+        <label for="yellow">Yellow</label>
+        <h4><u>Values from Fertility Test</u> 
+          (<a href="book.html">To book a fertility test</a>)</h4>
+        <h6><b>Enter the pH Value:</b><input type="number" id="phv" name="fname"size="15"maxsize="20"></h6>
+        <h6>Enter amount of K(Potassium):<input type="number" id="kv"  name="fname"size="15" maxsize="20"></h6>
+        <h6>Enter amount of N(Nitrogen):<input type="number" id="nv" name="fname"size="15"maxsize="20"></h6>
+        <h6>Enter amount of P(Phosporous):<input type="number"id='pv' name="fname"size="15"maxsize="20"></h6>
+        <h6>Enter the land survey number :<input type="text" name="fname"size="15"maxsize="20"></h3>
+        <a href="main.html">BACK</a>
+        
+         <button onclick="estimate()" id="btn" >Submit</button>
+         <u><p id="result"></p></u>
+         <p id="result1"></p>
+         <p id="result2"></p>
+         <p id="result3"></p>
+         <p id="result4"></p>
+         <p id="result5"></p>
+         <p id="result6"></p>
+         <p id="result7"></p>
+         <p id="result8"></p> 
+         <p id="result9"></p> 
+         <p id="result10"></p> 
+         
+         
+         
+          
+    </div>
+</body>
+<script>
+    function estimate(){
+var clr=document.getElementsByName("tag_color");var i;
+var x=document.getElementById("crops").value;
+let phv=parseInt(document.getElementById('phv').value);
+let nv=parseInt(document.getElementById('nv').value);
+let pv=parseInt(document.getElementById('pv').value);
+let kv=parseInt(document.getElementById('kv').value);
+let size=parseFloat(2.5);
+let ureaqt,urcost,sspqt,sspcost,mopqt,mopcost=0;
+if (x=="Paddy")
+{
+    ureaqt=(271.81-((nv-15)*18.12))*size;
+    urcost=ureaqt*5.57;
+    sspqt=(185.32-((pv-30)*6.177))*size;
+    sspcost=sspqt*7.24;
+    mopqt=(49.42-((kv-200)*0.247))*size;
+    mopcost=mopqt*16.8;
+
+}
+else if (x=="Wheat")
+{
+    ureaqt=(271.81-((nv-15)*18.12))*size;
+    urcost=ureaqt*5.57; 
+    sspqt=(383.005-((pv-30)*12.76))*size;
+    sspcost=sspqt*7.24;
+    mopqt=(54.632-((kv-200)*0.273))*size;
+    mopcost=mopqt*16.8;
+
+}
+else (x=="Maize")
+{
+    ureaqt=(50-((nv-15)*3.333))*size;
+    urcost=ureaqt*5.57;
+    sspqt=(135.55-((pv-30)*4.518))*size;
+    sspcost=sspqt*7.24;
+    mopqt=(39.67-((kv-200)*0.198))*size;
+    mopcost=mopqt*16.8;
+
+}
+let fcost=urcost+ sspcost+ mopcost;
+fcost=parseFloat(fcost).toFixed(2);
+let sqnt=60*size;let scost=0;let avgy=0;let pmsp=2040;let wmsp=3464; let mmsp=3195;let gross=0;
+document.getElementById("result").innerHTML="Analysis of Profits acquired by farmer";
+document.getElementById("result1").innerHTML="Crop: "+ x;
+for(i=0;i<clr.length;i++){
+    if(clr[i].checked){
+
+        document.getElementById("result2").innerHTML="Seed Tag Colour: "+clr[i].value;
+        if((clr[i])=='Blue')
+        {
+            scost=sqnt*250;
+            avgy=0.456*99*size;
+
+        }
+        else if((clr[i])=='White')
+        {
+            scost=sqnt*300;
+            avgy=0.456*99.5*size;
+        }
+        else{
+            scost=sqnt*400;
+            avgy=0.456*100*size;
+        }
+    }
+}
+let tamt=+ fcost+ +scost+ +30000;
+tamt=parseFloat(tamt).toFixed(2);
+document.getElementById("result3").innerHTML="Amount Spent by Farmer on Seeds:Rs."+scost;
+document.getElementById("result4").innerHTML="Amount Spent by Farmer on Fertilizers: Rs."+fcost;
+document.getElementById("result5").innerHTML="Amount Spent by Farmer on Other Works: Rs.30000";
+document.getElementById("result6").innerHTML="Total Estimable Amount Spent By Farmer : Rs."+tamt;
+document.getElementById("result7").innerHTML="Average Yield(in q/ha)="+parseFloat(avgy/size).toFixed(2);
+if(x=="Paddy"){gross=pmsp*avgy;
+    document.getElementById("result8").innerHTML="Average Selling Price(in Rs./q)="+pmsp;}
+else if(x=="Wheat"){gross=wmsp*avgy;
+    document.getElementById("result8").innerHTML="Average Selling Price(in Rs./q)="+wmsp;}
+else{gross=mmsp*avgy;
+    document.getElementById("result8").innerHTML="Average Selling Price(in Rs./q)="+mmsp;}
+document.getElementById("result9").innerHTML="Total Gross Retrns="+gross;
+document.getElementById("result10").innerHTML="Estimated Profits earned by Farmer=Rs."+parseFloat(gross-tamt).toFixed(2);
+
+
+}
+</script>
+</html>

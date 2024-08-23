@@ -1,0 +1,164 @@
+<html>
+<head>
+    
+    <style>
+        *{
+            text-align: center;
+            
+            /* display: block; */
+            /* align-items: center;
+            justify-content: center; */
+        }
+        body{
+            background-image: url(./restt.jpg);
+            background-repeat: no-repeat;
+            background-position:center ;
+            background-size: cover;
+        }
+        .main{
+            width:50%;
+            margin:15% auto;
+        }
+        h6{
+            font-family:sans-serif;
+        }
+
+
+        a{
+            background-color: aliceblue;
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+        }
+    </style>
+<title>ఇన్‌పుట్‌ల ద్వారా అంచనా</title>
+<body>
+    <div class="main"></div>
+        <br>
+        <br>
+        <label for="crops"><h1>పండించాల్సిన పంటను నమోదు చేయండి:</label>
+        <select name="Crop" id="crops">
+        <option value="గోధుమ">గోధుమ</option>
+        <option value="మొక్కజొన్న">మొక్కజొన్న</option>
+        <option value="వరి">వరి</option></h1>
+        </select>
+        <h4>దయచేసి సీడ్ ప్యాకెట్ ట్యాగ్ రంగును ఎంచుకోండి:</h4>
+        <input type="radio" id="blue" name="tag_color" value="Blue">
+        <label for="blue">నీలం</label><br>
+        <input type="radio" id="white" name="tag_color" value="White">
+        <label for="white">తెలుపు</label><br>
+        <input type="radio" id="yellow" name="tag_color" value="Yellow">
+        <label for="yellow">పసుపు</label>
+        <h4><u></u> 
+          (<a href="bookt.html">భూసార పరీక్షను బుక్ చేసుకోవడానికి</a>)</h4>
+        <h6><b>pH విలువను నమోదు చేయండి:</b><input type="number" id="phv" name="fname"size="15"maxsize="20"></h6>
+        <h6>K (పొటాషియం) మొత్తాన్ని నమోదు చేయండి:<input type="number" id="kv"  name="fname"size="15" maxsize="20"></h6>
+        <h6>N(నైట్రోజన్) మొత్తాన్ని నమోదు చేయండి:<input type="number" id="nv" name="fname"size="15"maxsize="20"></h6>
+        <h6>P (ఫాస్పరస్) మొత్తాన్ని నమోదు చేయండి:<input type="number"id='pv' name="fname"size="15"maxsize="20"></h6>
+        <h6>భూమి సర్వే నంబర్‌ను నమోదు చేయండి :<input type="text" name="fname"size="15"maxsize="20"></h3>
+        <a href="maint.html">బ్యాక్</a>
+        
+         <button onclick="estimate()" id="btn" >సబ్మిట్</button>
+         <u><p id="result"></p></u>
+         <p id="result1"></p>
+         <p id="result2"></p>
+         <p id="result3"></p>
+         <p id="result4"></p>
+         <p id="result5"></p>
+         <p id="result6"></p>
+         <p id="result7"></p>
+         <p id="result8"></p> 
+         <p id="result9"></p> 
+         <p id="result10"></p> 
+         
+         
+         
+          
+    </div>
+</body>
+<script>
+    function estimate(){
+var clr=document.getElementsByName("tag_color");var i;
+var x=document.getElementById("crops").value;
+let phv=parseInt(document.getElementById('phv').value);
+let nv=parseInt(document.getElementById('nv').value);
+let pv=parseInt(document.getElementById('pv').value);
+let kv=parseInt(document.getElementById('kv').value);
+let size=parseFloat(2.5);
+let ureaqt,urcost,sspqt,sspcost,mopqt,mopcost=0;
+if (x=="వరి")
+{
+    ureaqt=(271.81-((nv-15)*18.12))*size;
+    urcost=ureaqt*5.57;
+    sspqt=(185.32-((pv-30)*6.177))*size;
+    sspcost=sspqt*7.24;
+    mopqt=(49.42-((kv-200)*0.247))*size;
+    mopcost=mopqt*16.8;
+
+}
+else if (x=="గోధుమ")
+{
+    ureaqt=(271.81-((nv-15)*18.12))*size;
+    urcost=ureaqt*5.57; 
+    sspqt=(383.005-((pv-30)*12.76))*size;
+    sspcost=sspqt*7.24;
+    mopqt=(54.632-((kv-200)*0.273))*size;
+    mopcost=mopqt*16.8;
+
+}
+else (x=="మొక్కజొన్న")
+{
+    ureaqt=(50-((nv-15)*3.333))*size;
+    urcost=ureaqt*5.57;
+    sspqt=(135.55-((pv-30)*4.518))*size;
+    sspcost=sspqt*7.24;
+    mopqt=(39.67-((kv-200)*0.198))*size;
+    mopcost=mopqt*16.8;
+
+}
+let fcost=urcost+ sspcost+ mopcost;
+fcost=parseFloat(fcost).toFixed(2);
+let sqnt=60*size;let scost=0;let avgy=0;let pmsp=2040;let wmsp=3464; let mmsp=3195;let gross=0;
+document.getElementById("result").innerHTML="రైతు ఆర్జించిన లాభాల విశ్లేషణ";
+document.getElementById("result1").innerHTML="పంట: "+ x;
+for(i=0;i<clr.length;i++){
+    if(clr[i].checked){
+
+        document.getElementById("result2").innerHTML="Seed Tag Colour: "+clr[i].value;
+        if((clr[i])=='Blue')
+        {
+            scost=sqnt*250;
+            avgy=0.456*99*size;
+
+        }
+        else if((clr[i])=='White')
+        {
+            scost=sqnt*300;
+            avgy=0.456*99.5*size;
+        }
+        else{
+            scost=sqnt*400;
+            avgy=0.456*100*size;
+        }
+    }
+}
+let tamt=+ fcost+ +scost+ +30000;
+tamt=parseFloat(tamt).toFixed(2);
+document.getElementById("result3").innerHTML="విత్తనాలపై రైతు ఖర్చు చేసిన మొత్తం: రూ.."+scost;
+document.getElementById("result4").innerHTML="ఎరువులపై రైతు ఖర్చు చేసిన మొత్తం: రూ."+fcost;
+document.getElementById("result5").innerHTML="ఇతర పనులపై రైతు ఖర్చు చేసిన మొత్తం: రూ.30000";
+document.getElementById("result6").innerHTML="రైతు ఖర్చు చేసిన మొత్తం అంచనా మొత్తం : రూ."+tamt;
+document.getElementById("result7").innerHTML="సగటు దిగుబడి (q/haలో)="+parseFloat(avgy/size).toFixed(2);
+if(x=="వరి"){gross=pmsp*avgy;
+    document.getElementById("result8").innerHTML="సగటు అమ్మకపు ధర(రూ.qలో)="+pmsp;}
+else if(x=="గోధుమ"){gross=wmsp*avgy;
+    document.getElementById("result8").innerHTML="సగటు అమ్మకపు ధర(రూ.qలో)="+wmsp;}
+else{gross=mmsp*avgy;
+    document.getElementById("result8").innerHTML="సగటు అమ్మకపు ధర(రూ.qలో)="+mmsp;}
+document.getElementById("result9").innerHTML="మొత్తం స్థూల రాబడి="+gross;
+document.getElementById("result10").innerHTML="రైతు ఆర్జించిన అంచనా లాభాలు=రూ."+parseFloat(gross-tamt).toFixed(2);
+
+
+}
+</script>
+</html>

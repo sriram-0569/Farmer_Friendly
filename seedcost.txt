@@ -1,0 +1,6 @@
+Cost of Foundation Seeds(White Tag)=300/kg
+
+For a area of 2.5 hectares,
+    We require 150 kg of Seeds(when 60kg/ha is taken)
+
+So,cost of Seeds is 300/kg*150=Rs.450000   

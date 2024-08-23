@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            
+            /* display: block; */
+            /* align-items: center;
+            justify-content: center; */
+        }
+        body{
+            background-image: url(./restt.jpg);
+            background-repeat: no-repeat;
+            background-position:center ;
+            background-size: cover;
+        }
+        .main{
+            width:50%;
+            margin:15% auto;
+        }
+
+        a{
+            background-color: aliceblue;
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+        }
+
+        .flex-box-container-1{
+            display: flex;
+            border : 1px solid black;
+            padding :10px;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3><u>To know about Fertilizers </u></h3>
+        <label for="crops"><h1>Enter the crop to be grown:</label>
+        <select name="Crop" id="crops">
+        <option value="Wheat">Wheat</option>
+        <option value="Barley">Barley</option>
+        <option value="Maize">Maize</option>
+        <option value="Paddy">Paddy</option></h1>
+        </select>
+        <h4>Enter the pH Value:<input type="number" name="fname"size="15"maxsize="20"  id="qw1"></h4>
+        <h4>Enter amount of K(Potassium):<input type="number" name="fname"size="15"maxsize="20" id=qw2></h4>
+        <h4>Enter amount of N(Nitrogen):<input type="text" name="fname"size="15"maxsize="20"></h4>
+        <h4>Enter amount of P(Phosporous):<input type="text" name="fname"size="15"maxsize="20"></h4>
+        <h4>Enter the Area in hectares :<input type="text" name="fname"size="15"maxsize="20"></h4>  
+        <!-- <a href="main.html">BACK</a>
+
+        <a href="fertres.html">SUBMIT</a>    -->
+        <div>      
+             <button onclick="myfunc()">SUBMIT</button>    
+        </div>
+        <div class="flex-box-container-1"> 
+            <div id="flex-box-result"></div>
+        </div>
+    </div>
+    <script src="ferti.js"></script>
+</body>
+</html>
